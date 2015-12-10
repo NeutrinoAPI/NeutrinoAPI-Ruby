@@ -1,4 +1,4 @@
-NeutrinoApi
+NeutrinoAPI
 =================
 Welcome to the Neutrino API Ruby SDK. See: https://www.neutrinoapi.com/
 
