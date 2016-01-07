@@ -1,4 +1,4 @@
-# This file was automatically generated for NeutrinoAPI.com by APIMATIC BETA v2.0 on 12/10/2015
+# This file was automatically generated for NeutrinoAPI.com by APIMATIC BETA v2.0 on 01/07/2016
 
 module NeutrinoApi
   class GeolocationController
@@ -13,7 +13,7 @@ module NeutrinoApi
     # @param [String] ip Required parameter: The IP address
     # @param [Boolean] reverse_lookup Optional parameter: Do reverse DNS (PTR) lookup. This option can add extra delay to the request so only use it if you need it
     # @return IPInfoResponse response from the API call
-    def create_ip_info ip, reverse_lookup: false
+    def ip_info ip, reverse_lookup: false
       # the base uri for api requests
       query_builder = Configuration.BASE_URI.dup
 
@@ -58,7 +58,7 @@ module NeutrinoApi
     # @param [String] country_code Optional parameter: The ISO 2-letter country code to be biased towards (default is no country bias)
     # @param [String] language_code Optional parameter: The language to display results in
     # @return GeocodeAddressResponse response from the API call
-    def create_geocode_address address, country_code: nil, language_code: "en"
+    def geocode_address address, country_code: nil, language_code: "en"
       # the base uri for api requests
       query_builder = Configuration.BASE_URI.dup
 
@@ -104,7 +104,7 @@ module NeutrinoApi
     # @param [Double] longitude Required parameter: The location longitude
     # @param [String] language_code Optional parameter: The language to display results in
     # @return GeocodeReverseResponse response from the API call
-    def create_geocode_reverse latitude, longitude, language_code: "en"
+    def geocode_reverse latitude, longitude, language_code: "en"
       # the base uri for api requests
       query_builder = Configuration.BASE_URI.dup
 

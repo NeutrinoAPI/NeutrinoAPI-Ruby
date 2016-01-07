@@ -1,4 +1,4 @@
-# This file was automatically generated for NeutrinoAPI.com by APIMATIC BETA v2.0 on 12/10/2015
+# This file was automatically generated for NeutrinoAPI.com by APIMATIC BETA v2.0 on 01/07/2016
 
 module NeutrinoApi
   class TelephonyController
@@ -13,7 +13,7 @@ module NeutrinoApi
     # @param [String] audio_url Required parameter: A URL to a valid audio file. Accepted audio formats are: MP3, WAV, OGG
     # @param [String] number Required parameter: The phone number to call. Must be valid international format
     # @return PhonePlaybackResponse response from the API call
-    def create_phone_playback audio_url, number
+    def phone_playback audio_url, number
       # the base uri for api requests
       query_builder = Configuration.BASE_URI.dup
 
@@ -56,7 +56,7 @@ module NeutrinoApi
     # Check if a security code from one of the verify APIs is valid. See: https://www.neutrinoapi.com/api/verify-security-code/
     # @param [Numeric] security_code Required parameter: The security code to verify
     # @return VerifySecurityCodeResponse response from the API call
-    def create_verify_security_code security_code
+    def verify_security_code security_code
       # the base uri for api requests
       query_builder = Configuration.BASE_URI.dup
 
@@ -99,7 +99,7 @@ module NeutrinoApi
     # @param [String] number Required parameter: A phone number
     # @param [String] country_code Optional parameter: ISO 2-letter country code, assume numbers are based in this country. If not set numbers are assumed to be in international format (with or without the leading + sign)
     # @return HLRLookupResponse response from the API call
-    def create_hlr_lookup number, country_code: nil
+    def hlr_lookup number, country_code: nil
       # the base uri for api requests
       query_builder = Configuration.BASE_URI.dup
 
@@ -147,7 +147,7 @@ module NeutrinoApi
     # @param [Numeric] playback_delay Optional parameter: The delay in milliseconds between the playback of each security code
     # @param [Numeric] security_code Optional parameter: Pass in your own security code. This is useful if you have implemented TOTP or similar 2FA methods. If not set then we will generate a secure random code (only numerical security codes are currently supported)
     # @return PhoneVerifyResponse response from the API call
-    def create_phone_verify number, code_length: 6, country_code: nil, language_code: "en", playback_delay: 800, security_code: nil
+    def phone_verify number, code_length: 6, country_code: nil, language_code: "en", playback_delay: 800, security_code: nil
       # the base uri for api requests
       query_builder = Configuration.BASE_URI.dup
 
@@ -198,7 +198,7 @@ module NeutrinoApi
     # @param [String] language_code Optional parameter: The language to send the verification code in, available languages are: de - German, en - English, es - Spanish, fr - Fench, it - Italian, pt - Portuguese, ru - Russian
     # @param [Numeric] security_code Optional parameter: ass in your own security code. This is useful if you have implemented TOTP or similar 2FA methods. If not set then we will generate a secure random code (only numerical security codes are currently supported)
     # @return SMSVerifyResponse response from the API call
-    def create_sms_verify number, code_length: 5, country_code: nil, language_code: "en", security_code: nil
+    def sms_verify number, code_length: 5, country_code: nil, language_code: "en", security_code: nil
       # the base uri for api requests
       query_builder = Configuration.BASE_URI.dup
 

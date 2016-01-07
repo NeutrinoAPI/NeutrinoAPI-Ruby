@@ -1,4 +1,4 @@
-# This file was automatically generated for NeutrinoAPI.com by APIMATIC BETA v2.0 on 12/10/2015
+# This file was automatically generated for NeutrinoAPI.com by APIMATIC BETA v2.0 on 01/07/2016
 
 module NeutrinoApi
   class ECommerceController
@@ -13,7 +13,7 @@ module NeutrinoApi
     # @param [String] bin_number Required parameter: The BIN or IIN number (the first 6 digits of a credit card number)
     # @param [String] customer_ip Optional parameter: Pass in a customers remote IP address. The API will then determine the country of the IP address and match it against the BIN country. This feature is designed for fraud prevention and detection checks.
     # @return BINLookupResponse response from the API call
-    def create_bin_lookup bin_number, customer_ip: nil
+    def bin_lookup bin_number, customer_ip: nil
       # the base uri for api requests
       query_builder = Configuration.BASE_URI.dup
 

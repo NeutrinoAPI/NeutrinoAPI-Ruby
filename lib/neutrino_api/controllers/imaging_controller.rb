@@ -1,4 +1,4 @@
-# This file was automatically generated for NeutrinoAPI.com by APIMATIC BETA v2.0 on 12/10/2015
+# This file was automatically generated for NeutrinoAPI.com by APIMATIC BETA v2.0 on 01/07/2016
 
 module NeutrinoApi
   class ImagingController
@@ -16,7 +16,7 @@ module NeutrinoApi
     # @param [Numeric] height Optional parameter: The height of the QR code (in px)
     # @param [Numeric] width Optional parameter: The width of the QR code (in px)
     # @return Binary response from the API call
-    def create_qr_code content, bg_color: "#ffffff", fg_color: "#000000", height: 250, width: 250
+    def qr_code content, bg_color: "#ffffff", fg_color: "#000000", height: 250, width: 250
       # the base uri for api requests
       query_builder = Configuration.BASE_URI.dup
 
@@ -63,7 +63,7 @@ module NeutrinoApi
     # @param [Numeric] margin Optional parameter: The PDF document margin (in mm)
     # @param [String] title Optional parameter: The PDF document title
     # @return Binary response from the API call
-    def create_html_to_pdf content, html_width: 1024, margin: 10, title: nil
+    def html_to_pdf content, html_width: 1024, margin: 10, title: nil
       # the base uri for api requests
       query_builder = Configuration.BASE_URI.dup
 
@@ -109,7 +109,7 @@ module NeutrinoApi
     # @param [Numeric] width Required parameter: Width to resize to (in px)
     # @param [String] format Optional parameter: The output image format, can be either png or jpg
     # @return Binary response from the API call
-    def create_image_resize height, image_url, width, format: "png"
+    def image_resize height, image_url, width, format: "png"
       # the base uri for api requests
       query_builder = Configuration.BASE_URI.dup
 
@@ -158,7 +158,7 @@ module NeutrinoApi
     # @param [String] position Optional parameter: The position of the watermark image, possible values are: center, top-left, top-center, top-right, bottom-left, bottom-center, bottom-right
     # @param [Numeric] width Optional parameter: If set resize the resulting image to this width (preserving aspect ratio)
     # @return Binary response from the API call
-    def create_image_watermark image_url, watermark_url, format: "png", height: nil, opacity: 50, position: "center", width: nil
+    def image_watermark image_url, watermark_url, format: "png", height: nil, opacity: 50, position: "center", width: nil
       # the base uri for api requests
       query_builder = Configuration.BASE_URI.dup
 

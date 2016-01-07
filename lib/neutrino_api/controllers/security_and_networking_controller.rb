@@ -1,4 +1,4 @@
-# This file was automatically generated for NeutrinoAPI.com by APIMATIC BETA v2.0 on 12/10/2015
+# This file was automatically generated for NeutrinoAPI.com by APIMATIC BETA v2.0 on 01/07/2016
 
 module NeutrinoApi
   class SecurityAndNetworkingController
@@ -13,7 +13,7 @@ module NeutrinoApi
     # @param [Boolean] fetch_content Required parameter: If this URL responds with html, text, json or xml then return the response. This option is useful if you want to perform further processing on the URL content
     # @param [String] url Required parameter: The URL to process
     # @return URLInfoResponse response from the API call
-    def create_url_info fetch_content, url
+    def url_info fetch_content, url
       # the base uri for api requests
       query_builder = Configuration.BASE_URI.dup
 
@@ -56,7 +56,7 @@ module NeutrinoApi
     # Check the reputation of an IP address or domain against a comprehensive list of blacklists and blocklists (DNSBLs). See: https://www.neutrinoapi.com/api/host-reputation/
     # @param [String] host Required parameter: An IPv4 address or a domain name. If you supply a domain name it will be checked against the URI DNSBL list
     # @return HostReputationResponse response from the API call
-    def create_host_reputation host
+    def host_reputation host
       # the base uri for api requests
       query_builder = Configuration.BASE_URI.dup
 
@@ -98,7 +98,7 @@ module NeutrinoApi
     # The IP Blocklist API will detect potentially malicious or dangerous IP addresses. See: https://www.neutrinoapi.com/api/ip-blocklist/
     # @param [String] ip Required parameter: An IPv4 address
     # @return IPBlocklistResponse response from the API call
-    def create_ip_blocklist ip
+    def ip_blocklist ip
       # the base uri for api requests
       query_builder = Configuration.BASE_URI.dup
 

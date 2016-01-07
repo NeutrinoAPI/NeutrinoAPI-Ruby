@@ -1,4 +1,4 @@
-# This file was automatically generated for NeutrinoAPI.com by APIMATIC BETA v2.0 on 12/10/2015
+# This file was automatically generated for NeutrinoAPI.com by APIMATIC BETA v2.0 on 01/07/2016
 
 module NeutrinoApi
   class DataToolsController
@@ -13,7 +13,7 @@ module NeutrinoApi
     # @param [String] number Required parameter: The phone number
     # @param [String] country_code Optional parameter: ISO 2-letter country code, assume numbers are based in this country. If not set numbers are assumed to be in international format (with or without the leading + sign)
     # @return PhoneValidateResponse response from the API call
-    def create_phone_validate number, country_code: nil
+    def phone_validate number, country_code: nil
       # the base uri for api requests
       query_builder = Configuration.BASE_URI.dup
 
@@ -56,7 +56,7 @@ module NeutrinoApi
     # Parse, validate and get detailed user-agent information from a user-agent string. See: https://www.neutrinoapi.com/api/user-agent-info/
     # @param [String] user_agent Required parameter: A user-agent string
     # @return UserAgentInfoResponse response from the API call
-    def create_user_agent_info user_agent
+    def user_agent_info user_agent
       # the base uri for api requests
       query_builder = Configuration.BASE_URI.dup
 
@@ -100,7 +100,7 @@ module NeutrinoApi
     # @param [String] type Required parameter: The code type. See the API docs for all supported types
     # @param [Boolean] add_keyword_links Optional parameter: Add links on source code keywords to the relevant language documentation
     # @return Binary response from the API call
-    def create_code_highlight content, type, add_keyword_links: false
+    def code_highlight content, type, add_keyword_links: false
       # the base uri for api requests
       query_builder = Configuration.BASE_URI.dup
 
@@ -143,7 +143,7 @@ module NeutrinoApi
     # @param [String] content Required parameter: The text content to check. This can be either a URL to load content from or an actual content string
     # @param [String] censor_character Optional parameter: The character to use to censor out the bad words found
     # @return BadWordFilterResponse response from the API call
-    def create_bad_word_filter content, censor_character: nil
+    def bad_word_filter content, censor_character: nil
       # the base uri for api requests
       query_builder = Configuration.BASE_URI.dup
 
@@ -188,7 +188,7 @@ module NeutrinoApi
     # @param [String] from_value Required parameter: The value to convert from
     # @param [String] to_type Required parameter: The type to convert to
     # @return ConvertResponse response from the API call
-    def create_convert from_type, from_value, to_type
+    def convert from_type, from_value, to_type
       # the base uri for api requests
       query_builder = Configuration.BASE_URI.dup
 
@@ -233,7 +233,7 @@ module NeutrinoApi
     # @param [String] email Required parameter: The email address
     # @param [Boolean] fix_typos Optional parameter: Automatically attempt to fix typos in the address
     # @return EmailValidateResponse response from the API call
-    def create_email_validate email, fix_typos: false
+    def email_validate email, fix_typos: false
       # the base uri for api requests
       query_builder = Configuration.BASE_URI.dup
 
@@ -277,7 +277,7 @@ module NeutrinoApi
     # @param [String] content Required parameter: The HTML content. This can be either a URL to load HTML from or an actual HTML content string
     # @param [String] output_type Required parameter: The level of sanitization, possible values are: plain-text, simple-text, basic-html, basic-html-with-images, advanced-html
     # @return Binary response from the API call
-    def create_html_clean content, output_type
+    def html_clean content, output_type
       # the base uri for api requests
       query_builder = Configuration.BASE_URI.dup
 
@@ -321,7 +321,7 @@ module NeutrinoApi
     # @param [String] attribute Optional parameter: If set, then extract data from the specified tag attribute. If not set, then data will be extracted from the tags inner content
     # @param [String] base_url Optional parameter: The base URL to replace into realive links
     # @return HTMLExtractResponse response from the API call
-    def create_html_extract content, tag, attribute: nil, base_url: nil
+    def html_extract content, tag, attribute: nil, base_url: nil
       # the base uri for api requests
       query_builder = Configuration.BASE_URI.dup
 
