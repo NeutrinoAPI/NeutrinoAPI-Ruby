@@ -4,6 +4,7 @@
 # ( https://apimatic.io ).
 
 require 'faraday/http_cache'
+require 'faraday_middleware'
 
 module NeutrinoApi
   # An implementation of HttpClient.
@@ -13,16 +14,17 @@ module NeutrinoApi
                    max_retries: nil, retry_interval: nil)
       @connection = Faraday.new do |faraday|
         faraday.use Faraday::HttpCache, serializer: Marshal if cache
+        faraday.use FaradayMiddleware::FollowRedirects
         faraday.request :multipart
         faraday.request :url_encoded
         faraday.ssl[:ca_file] = Certifi.where
-        faraday.adapter Faraday.default_adapter
-        faraday.options[:params_encoder] = Faraday::FlatParamsEncoder
-        faraday.options[:open_timeout] = timeout if timeout
         faraday.request :retry, max: max_retries, interval: if max_retries &&
                                                                retry_interval
                                                               retry_interval
                                                             end
+        faraday.adapter Faraday.default_adapter
+        faraday.options[:params_encoder] = Faraday::FlatParamsEncoder
+        faraday.options[:open_timeout] = timeout if timeout
       end
     end
 

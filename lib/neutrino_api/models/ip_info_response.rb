@@ -27,7 +27,7 @@ module NeutrinoApi
     attr_accessor :country_code
 
     # Location latitude
-    # @return [Integer]
+    # @return [Float]
     attr_accessor :latitude
 
     # Full region name (if detectable)
@@ -35,7 +35,7 @@ module NeutrinoApi
     attr_accessor :region
 
     # Location longitude
-    # @return [Integer]
+    # @return [Float]
     attr_accessor :longitude
 
     # ISO 2-letter continent code

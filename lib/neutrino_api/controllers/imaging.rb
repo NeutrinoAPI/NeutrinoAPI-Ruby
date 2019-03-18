@@ -16,102 +16,6 @@ module NeutrinoApi
       self.class.instance
     end
 
-    # Resize an image and output as either JPEG or PNG. See:
-    # https://www.neutrinoapi.com/api/image-resize/
-    # @param [String] image_url Required parameter: The URL to the source
-    # image
-    # @param [Integer] width Required parameter: The width to resize to (in px)
-    # while preserving aspect ratio
-    # @param [Integer] height Required parameter: The height to resize to (in
-    # px) while preserving aspect ratio
-    # @param [String] format Optional parameter: The output image format, can be
-    # either png or jpg
-    # @return Binary response from the API call
-    def image_resize(image_url,
-                     width,
-                     height,
-                     format = 'png')
-      # Prepare query url.
-      _path_url = '/image-resize'
-      _query_builder = Configuration.base_uri.dup
-      _query_builder << _path_url
-      _query_url = APIHelper.clean_url _query_builder
-
-      # Prepare form parameters.
-      _parameters = {
-        'image-url' => image_url,
-        'width' => width,
-        'height' => height,
-        'format' => format
-      }
-      _parameters = APIHelper.form_encode_parameters(_parameters)
-
-      # Prepare and execute HttpRequest.
-      _request = @http_client.post(
-        _query_url,
-        parameters: _parameters
-      )
-      CustomQueryAuth.apply(_request)
-      _context = execute_request(_request, binary: true)
-      validate_response(_context)
-
-      # Return appropriate response type.
-      _context.response.raw_body
-    end
-
-    # Generate a QR code as a PNG image. See:
-    # https://www.neutrinoapi.com/api/qr-code/
-    # @param [String] content Required parameter: The content to encode into the
-    # QR code (e.g. a URL or a phone number)
-    # @param [Integer] width Optional parameter: The width of the QR code (in
-    # px)
-    # @param [Integer] height Optional parameter: The height of the QR code (in
-    # px)
-    # @param [String] fg_color Optional parameter: The QR code foreground
-    # color
-    # @param [String] bg_color Optional parameter: The QR code background
-    # color
-    # @return Binary response from the API call
-    def qr_code(content,
-                width = 256,
-                height = 256,
-                fg_color = '#000000',
-                bg_color = '#ffffff')
-      # Prepare query url.
-      _path_url = '/qr-code'
-      _query_builder = Configuration.base_uri.dup
-      _query_builder << _path_url
-      _query_builder = APIHelper.append_url_with_query_parameters(
-        _query_builder,
-        {
-          'width' => width
-        },
-        array_serialization: Configuration.array_serialization
-      )
-      _query_url = APIHelper.clean_url _query_builder
-
-      # Prepare form parameters.
-      _parameters = {
-        'content' => content,
-        'height' => height,
-        'fg-color' => fg_color,
-        'bg-color' => bg_color
-      }
-      _parameters = APIHelper.form_encode_parameters(_parameters)
-
-      # Prepare and execute HttpRequest.
-      _request = @http_client.post(
-        _query_url,
-        parameters: _parameters
-      )
-      CustomQueryAuth.apply(_request)
-      _context = execute_request(_request, binary: true)
-      validate_response(_context)
-
-      # Return appropriate response type.
-      _context.response.raw_body
-    end
-
     # Watermark one image with another image. See:
     # https://www.neutrinoapi.com/api/image-watermark/
     # @param [String] image_url Required parameter: The URL to the source
@@ -168,6 +72,96 @@ module NeutrinoApi
       _context.response.raw_body
     end
 
+    # Generate a QR code as a PNG image. See:
+    # https://www.neutrinoapi.com/api/qr-code/
+    # @param [String] content Required parameter: The content to encode into the
+    # QR code (e.g. a URL or a phone number)
+    # @param [Integer] width Optional parameter: The width of the QR code (in
+    # px)
+    # @param [Integer] height Optional parameter: The height of the QR code (in
+    # px)
+    # @param [String] fg_color Optional parameter: The QR code foreground
+    # color
+    # @param [String] bg_color Optional parameter: The QR code background
+    # color
+    # @return Binary response from the API call
+    def qr_code(content,
+                width = 256,
+                height = 256,
+                fg_color = '#000000',
+                bg_color = '#ffffff')
+      # Prepare query url.
+      _path_url = '/qr-code'
+      _query_builder = Configuration.base_uri.dup
+      _query_builder << _path_url
+      _query_url = APIHelper.clean_url _query_builder
+
+      # Prepare form parameters.
+      _parameters = {
+        'content' => content,
+        'width' => width,
+        'height' => height,
+        'fg-color' => fg_color,
+        'bg-color' => bg_color
+      }
+      _parameters = APIHelper.form_encode_parameters(_parameters)
+
+      # Prepare and execute HttpRequest.
+      _request = @http_client.post(
+        _query_url,
+        parameters: _parameters
+      )
+      CustomQueryAuth.apply(_request)
+      _context = execute_request(_request, binary: true)
+      validate_response(_context)
+
+      # Return appropriate response type.
+      _context.response.raw_body
+    end
+
+    # Resize an image and output as either JPEG or PNG. See:
+    # https://www.neutrinoapi.com/api/image-resize/
+    # @param [String] image_url Required parameter: The URL to the source
+    # image
+    # @param [Integer] width Required parameter: The width to resize to (in px)
+    # while preserving aspect ratio
+    # @param [Integer] height Required parameter: The height to resize to (in
+    # px) while preserving aspect ratio
+    # @param [String] format Optional parameter: The output image format, can be
+    # either png or jpg
+    # @return Binary response from the API call
+    def image_resize(image_url,
+                     width,
+                     height,
+                     format = 'png')
+      # Prepare query url.
+      _path_url = '/image-resize'
+      _query_builder = Configuration.base_uri.dup
+      _query_builder << _path_url
+      _query_url = APIHelper.clean_url _query_builder
+
+      # Prepare form parameters.
+      _parameters = {
+        'image-url' => image_url,
+        'width' => width,
+        'height' => height,
+        'format' => format
+      }
+      _parameters = APIHelper.form_encode_parameters(_parameters)
+
+      # Prepare and execute HttpRequest.
+      _request = @http_client.post(
+        _query_url,
+        parameters: _parameters
+      )
+      CustomQueryAuth.apply(_request)
+      _context = execute_request(_request, binary: true)
+      validate_response(_context)
+
+      # Return appropriate response type.
+      _context.response.raw_body
+    end
+
     # Render HTML content to PDF, JPG or PNG. See:
     # https://www.neutrinoapi.com/api/html5-render/
     # @param [String] content Required parameter: The HTML content. This can be
@@ -188,8 +182,8 @@ module NeutrinoApi
     # margin (in mm)
     # @param [Boolean] landscape Optional parameter: Set the document to
     # lanscape orientation
-    # @param [Integer] zoom Optional parameter: Set the zoom factor when
-    # rendering the page (2.0 for double size, 0.5 for half size)
+    # @param [Float] zoom Optional parameter: Set the zoom factor when rendering
+    # the page (2.0 for double size, 0.5 for half size)
     # @param [Boolean] grayscale Optional parameter: Render the final document
     # in grayscale
     # @param [Boolean] media_print Optional parameter: Use @media print CSS
@@ -254,7 +248,7 @@ module NeutrinoApi
                      margin_top = 0,
                      margin_bottom = 0,
                      landscape = false,
-                     zoom = 1.0,
+                     zoom = 1,
                      grayscale = false,
                      media_print = false,
                      media_queries = false,

@@ -1,14 +1,15 @@
 Gem::Specification.new do |s|
   s.name = 'neutrino_api'
-  s.version = '3.4.0'
+  s.version = '3.4.1'
   s.summary = 'neutrino_api'
   s.description = 'The general-purpose API'
-  s.authors = ['APIMatic SDK Generator']
-  s.email = 'support@apimatic.io'
-  s.homepage = 'https://apimatic.io'
+  s.authors = ['NeutrinoAPI']
+  s.email = 'tech@neutrinoapi.com'
+  s.homepage = 'https://www.neutrinoapi.com/contact-us/'
   s.license = 'MIT'
   s.add_dependency('logging', '~> 2.0')
   s.add_dependency('faraday', '~> 0.10.0')
+  s.add_dependency('faraday_middleware', '~> 0.13.1')
   s.add_dependency('test-unit', '~> 3.1.5')
   s.add_dependency('certifi', '~> 2016.9', '>= 2016.09.26')
   s.add_dependency('faraday-http-cache', '~> 1.2', '>= 1.2.2')

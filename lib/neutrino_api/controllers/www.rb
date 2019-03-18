@@ -16,50 +16,6 @@ module NeutrinoApi
       self.class.instance
     end
 
-    # Parse, analyze and retrieve content from the supplied URL. See:
-    # https://www.neutrinoapi.com/api/url-info/
-    # @param [String] url Required parameter: The URL to probe
-    # @param [Boolean] fetch_content Optional parameter: If this URL responds
-    # with html, text, json or xml then return the response. This option is
-    # useful if you want to perform further processing on the URL content (e.g.
-    # with the HTML Extract or HTML Clean APIs)
-    # @return URLInfoResponse response from the API call
-    def url_info(url,
-                 fetch_content = false)
-      # Prepare query url.
-      _path_url = '/url-info'
-      _query_builder = Configuration.base_uri.dup
-      _query_builder << _path_url
-      _query_url = APIHelper.clean_url _query_builder
-
-      # Prepare headers.
-      _headers = {
-        'accept' => 'application/json'
-      }
-
-      # Prepare form parameters.
-      _parameters = {
-        'output-case' => 'camel',
-        'url' => url,
-        'fetch-content' => fetch_content
-      }
-      _parameters = APIHelper.form_encode_parameters(_parameters)
-
-      # Prepare and execute HttpRequest.
-      _request = @http_client.post(
-        _query_url,
-        headers: _headers,
-        parameters: _parameters
-      )
-      CustomQueryAuth.apply(_request)
-      _context = execute_request(_request)
-      validate_response(_context)
-
-      # Return appropriate response type.
-      decoded = APIHelper.json_deserialize(_context.response.raw_body)
-      URLInfoResponse.from_hash(decoded)
-    end
-
     # Browser bot can extract content, interact with keyboard and mouse events,
     # and execute JavaScript on a website. See:
     # https://www.neutrinoapi.com/api/browser-bot/
@@ -179,6 +135,50 @@ module NeutrinoApi
 
       # Return appropriate response type.
       _context.response.raw_body
+    end
+
+    # Parse, analyze and retrieve content from the supplied URL. See:
+    # https://www.neutrinoapi.com/api/url-info/
+    # @param [String] url Required parameter: The URL to probe
+    # @param [Boolean] fetch_content Optional parameter: If this URL responds
+    # with html, text, json or xml then return the response. This option is
+    # useful if you want to perform further processing on the URL content (e.g.
+    # with the HTML Extract or HTML Clean APIs)
+    # @return URLInfoResponse response from the API call
+    def url_info(url,
+                 fetch_content = false)
+      # Prepare query url.
+      _path_url = '/url-info'
+      _query_builder = Configuration.base_uri.dup
+      _query_builder << _path_url
+      _query_url = APIHelper.clean_url _query_builder
+
+      # Prepare headers.
+      _headers = {
+        'accept' => 'application/json'
+      }
+
+      # Prepare form parameters.
+      _parameters = {
+        'output-case' => 'camel',
+        'url' => url,
+        'fetch-content' => fetch_content
+      }
+      _parameters = APIHelper.form_encode_parameters(_parameters)
+
+      # Prepare and execute HttpRequest.
+      _request = @http_client.post(
+        _query_url,
+        headers: _headers,
+        parameters: _parameters
+      )
+      CustomQueryAuth.apply(_request)
+      _context = execute_request(_request)
+      validate_response(_context)
+
+      # Return appropriate response type.
+      decoded = APIHelper.json_deserialize(_context.response.raw_body)
+      URLInfoResponse.from_hash(decoded)
     end
   end
 end

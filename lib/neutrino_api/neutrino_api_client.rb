@@ -6,6 +6,12 @@
 module NeutrinoApi
   #  neutrino_api client class.
   class NeutrinoApiClient
+    # Singleton access to www controller.
+    # @return [WWW] Returns the controller instance.
+    def www
+      WWW.instance
+    end
+
     # Singleton access to imaging controller.
     # @return [Imaging] Returns the controller instance.
     def imaging
@@ -18,16 +24,10 @@ module NeutrinoApi
       Telephony.instance
     end
 
-    # Singleton access to data_tools controller.
-    # @return [DataTools] Returns the controller instance.
-    def data_tools
-      DataTools.instance
-    end
-
-    # Singleton access to security_and_networking controller.
-    # @return [SecurityAndNetworking] Returns the controller instance.
-    def security_and_networking
-      SecurityAndNetworking.instance
+    # Singleton access to e_commerce controller.
+    # @return [ECommerce] Returns the controller instance.
+    def e_commerce
+      ECommerce.instance
     end
 
     # Singleton access to geolocation controller.
@@ -36,16 +36,16 @@ module NeutrinoApi
       Geolocation.instance
     end
 
-    # Singleton access to e_commerce controller.
-    # @return [ECommerce] Returns the controller instance.
-    def e_commerce
-      ECommerce.instance
+    # Singleton access to security_and_networking controller.
+    # @return [SecurityAndNetworking] Returns the controller instance.
+    def security_and_networking
+      SecurityAndNetworking.instance
     end
 
-    # Singleton access to www controller.
-    # @return [WWW] Returns the controller instance.
-    def www
-      WWW.instance
+    # Singleton access to data_tools controller.
+    # @return [DataTools] Returns the controller instance.
+    def data_tools
+      DataTools.instance
     end
 
     # Returns the configuration class for easy access.

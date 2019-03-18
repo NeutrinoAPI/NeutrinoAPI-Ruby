@@ -16,97 +16,6 @@ module NeutrinoApi
       self.class.instance
     end
 
-    # Convert a geographic coordinate (latitude and longitude) into a real world
-    # address or location. See: https://www.neutrinoapi.com/api/geocode-reverse/
-    # @param [String] latitude Required parameter: The location latitude in
-    # decimal degrees format
-    # @param [String] longitude Required parameter: The location longitude in
-    # decimal degrees format
-    # @param [String] language_code Optional parameter: The language to display
-    # results in, available languages are:<ul><li>de, en, es, fr, it, pt,
-    # ru</li></ul>
-    # @return GeocodeReverseResponse response from the API call
-    def geocode_reverse(latitude,
-                        longitude,
-                        language_code = 'en')
-      # Prepare query url.
-      _path_url = '/geocode-reverse'
-      _query_builder = Configuration.base_uri.dup
-      _query_builder << _path_url
-      _query_url = APIHelper.clean_url _query_builder
-
-      # Prepare headers.
-      _headers = {
-        'accept' => 'application/json'
-      }
-
-      # Prepare form parameters.
-      _parameters = {
-        'output-case' => 'camel',
-        'latitude' => latitude,
-        'longitude' => longitude,
-        'language-code' => language_code
-      }
-      _parameters = APIHelper.form_encode_parameters(_parameters)
-
-      # Prepare and execute HttpRequest.
-      _request = @http_client.post(
-        _query_url,
-        headers: _headers,
-        parameters: _parameters
-      )
-      CustomQueryAuth.apply(_request)
-      _context = execute_request(_request)
-      validate_response(_context)
-
-      # Return appropriate response type.
-      decoded = APIHelper.json_deserialize(_context.response.raw_body)
-      GeocodeReverseResponse.from_hash(decoded)
-    end
-
-    # Get location information about an IP address and do reverse DNS (PTR)
-    # lookups. See: https://www.neutrinoapi.com/api/ip-info/
-    # @param [String] ip Required parameter: IPv4 or IPv6 address
-    # @param [Boolean] reverse_lookup Optional parameter: Do a reverse DNS (PTR)
-    # lookup. This option can add extra delay to the request so only use it if
-    # you need it
-    # @return IPInfoResponse response from the API call
-    def ip_info(ip,
-                reverse_lookup = false)
-      # Prepare query url.
-      _path_url = '/ip-info'
-      _query_builder = Configuration.base_uri.dup
-      _query_builder << _path_url
-      _query_url = APIHelper.clean_url _query_builder
-
-      # Prepare headers.
-      _headers = {
-        'accept' => 'application/json'
-      }
-
-      # Prepare form parameters.
-      _parameters = {
-        'output-case' => 'camel',
-        'ip' => ip,
-        'reverse-lookup' => reverse_lookup
-      }
-      _parameters = APIHelper.form_encode_parameters(_parameters)
-
-      # Prepare and execute HttpRequest.
-      _request = @http_client.post(
-        _query_url,
-        headers: _headers,
-        parameters: _parameters
-      )
-      CustomQueryAuth.apply(_request)
-      _context = execute_request(_request)
-      validate_response(_context)
-
-      # Return appropriate response type.
-      decoded = APIHelper.json_deserialize(_context.response.raw_body)
-      IPInfoResponse.from_hash(decoded)
-    end
-
     # Geocode an address, partial address or just the name of a place. See:
     # https://www.neutrinoapi.com/api/geocode-address/
     # @param [String] address Required parameter: The address, partial address
@@ -159,6 +68,97 @@ module NeutrinoApi
       # Return appropriate response type.
       decoded = APIHelper.json_deserialize(_context.response.raw_body)
       GeocodeAddressResponse.from_hash(decoded)
+    end
+
+    # Get location information about an IP address and do reverse DNS (PTR)
+    # lookups. See: https://www.neutrinoapi.com/api/ip-info/
+    # @param [String] ip Required parameter: IPv4 or IPv6 address
+    # @param [Boolean] reverse_lookup Optional parameter: Do a reverse DNS (PTR)
+    # lookup. This option can add extra delay to the request so only use it if
+    # you need it
+    # @return IPInfoResponse response from the API call
+    def ip_info(ip,
+                reverse_lookup = false)
+      # Prepare query url.
+      _path_url = '/ip-info'
+      _query_builder = Configuration.base_uri.dup
+      _query_builder << _path_url
+      _query_url = APIHelper.clean_url _query_builder
+
+      # Prepare headers.
+      _headers = {
+        'accept' => 'application/json'
+      }
+
+      # Prepare form parameters.
+      _parameters = {
+        'output-case' => 'camel',
+        'ip' => ip,
+        'reverse-lookup' => reverse_lookup
+      }
+      _parameters = APIHelper.form_encode_parameters(_parameters)
+
+      # Prepare and execute HttpRequest.
+      _request = @http_client.post(
+        _query_url,
+        headers: _headers,
+        parameters: _parameters
+      )
+      CustomQueryAuth.apply(_request)
+      _context = execute_request(_request)
+      validate_response(_context)
+
+      # Return appropriate response type.
+      decoded = APIHelper.json_deserialize(_context.response.raw_body)
+      IPInfoResponse.from_hash(decoded)
+    end
+
+    # Convert a geographic coordinate (latitude and longitude) into a real world
+    # address or location. See: https://www.neutrinoapi.com/api/geocode-reverse/
+    # @param [String] latitude Required parameter: The location latitude in
+    # decimal degrees format
+    # @param [String] longitude Required parameter: The location longitude in
+    # decimal degrees format
+    # @param [String] language_code Optional parameter: The language to display
+    # results in, available languages are:<ul><li>de, en, es, fr, it, pt,
+    # ru</li></ul>
+    # @return GeocodeReverseResponse response from the API call
+    def geocode_reverse(latitude,
+                        longitude,
+                        language_code = 'en')
+      # Prepare query url.
+      _path_url = '/geocode-reverse'
+      _query_builder = Configuration.base_uri.dup
+      _query_builder << _path_url
+      _query_url = APIHelper.clean_url _query_builder
+
+      # Prepare headers.
+      _headers = {
+        'accept' => 'application/json'
+      }
+
+      # Prepare form parameters.
+      _parameters = {
+        'output-case' => 'camel',
+        'latitude' => latitude,
+        'longitude' => longitude,
+        'language-code' => language_code
+      }
+      _parameters = APIHelper.form_encode_parameters(_parameters)
+
+      # Prepare and execute HttpRequest.
+      _request = @http_client.post(
+        _query_url,
+        headers: _headers,
+        parameters: _parameters
+      )
+      CustomQueryAuth.apply(_request)
+      _context = execute_request(_request)
+      validate_response(_context)
+
+      # Return appropriate response type.
+      decoded = APIHelper.json_deserialize(_context.response.raw_body)
+      GeocodeReverseResponse.from_hash(decoded)
     end
   end
 end

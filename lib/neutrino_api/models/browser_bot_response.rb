@@ -64,7 +64,7 @@ module NeutrinoApi
 
     # The number of seconds taken to load the page (from initial request until
     # DOM ready)
-    # @return [Integer]
+    # @return [Float]
     attr_accessor :load_time
 
     # Map containing all the HTTP response headers the URL responded with

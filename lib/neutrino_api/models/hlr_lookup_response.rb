@@ -14,7 +14,7 @@ module NeutrinoApi
     # @return [Integer]
     attr_accessor :international_calling_code
 
-    # The mobile MNC number
+    # The mobile MNC number (Mobile Network Code)
     # @return [String]
     attr_accessor :mnc
 
@@ -46,11 +46,11 @@ module NeutrinoApi
     # @return [String]
     attr_accessor :ported_network
 
-    # The mobile IMSI number
+    # The mobile IMSI number (International Mobile Subscriber Identity)
     # @return [String]
     attr_accessor :imsi
 
-    # The mobile MCC number
+    # The mobile MCC number (Mobile Country Code)
     # @return [String]
     attr_accessor :mcc
 
@@ -70,7 +70,7 @@ module NeutrinoApi
     # @return [Boolean]
     attr_accessor :is_ported
 
-    # The mobile MSIN number
+    # The mobile MSIN number (Mobile Subscription Identification Number)
     # @return [String]
     attr_accessor :msin
 
@@ -109,6 +109,10 @@ module NeutrinoApi
     # @return [String]
     attr_accessor :roaming_country_code
 
+    # The mobile MSC number (Mobile Switching Center)
+    # @return [String]
+    attr_accessor :msc
+
     # A mapping from model property names to API property names.
     def self.names
       @_hash = {} if @_hash.nil?
@@ -134,6 +138,7 @@ module NeutrinoApi
       @_hash['country_code3'] = 'countryCode3'
       @_hash['currency_code'] = 'currencyCode'
       @_hash['roaming_country_code'] = 'roamingCountryCode'
+      @_hash['msc'] = 'msc'
       @_hash
     end
 
@@ -158,7 +163,8 @@ module NeutrinoApi
                    country = nil,
                    country_code3 = nil,
                    currency_code = nil,
-                   roaming_country_code = nil)
+                   roaming_country_code = nil,
+                   msc = nil)
       @number_valid = number_valid
       @international_calling_code = international_calling_code
       @mnc = mnc
@@ -181,6 +187,7 @@ module NeutrinoApi
       @country_code3 = country_code3
       @currency_code = currency_code
       @roaming_country_code = roaming_country_code
+      @msc = msc
     end
 
     # Creates an instance of the object from a hash.
@@ -210,6 +217,7 @@ module NeutrinoApi
       country_code3 = hash['countryCode3']
       currency_code = hash['currencyCode']
       roaming_country_code = hash['roamingCountryCode']
+      msc = hash['msc']
 
       # Create object from extracted values.
       HLRLookupResponse.new(number_valid,
@@ -233,7 +241,8 @@ module NeutrinoApi
                             country,
                             country_code3,
                             currency_code,
-                            roaming_country_code)
+                            roaming_country_code,
+                            msc)
     end
   end
 end
