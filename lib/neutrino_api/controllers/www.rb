@@ -137,7 +137,7 @@ module NeutrinoApi
                     timeout = 30,
                     delay = 3,
                     selector = nil,
-                    exec = ,
+                    exec = nil,
                     user_agent = nil,
                     ignore_certificate_errors = false)
       # Prepare query url.
