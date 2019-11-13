@@ -2,14 +2,6 @@
 
 The general-purpose API
 
-## How to Build
-
-This client library is a Ruby gem which can be compiled and used in your Ruby and Ruby on Rails project. This library requires a few gems from the RubyGems repository.
-
-1. Open the command line interface or the terminal and navigate to the folder containing the source code.
-2. Run ``` gem build neutrino_api.gemspec ``` to build the gem.
-3. Once built, the gem can be installed on the current work environment using ``` gem install neutrino_api-3.4.3.gem ```
-
 ## Initialization
 
 ### Authentication
@@ -84,8 +76,8 @@ def image_resize(image_url,
 
 ```ruby
 image_url = 'image-url'
-width = 81
-height = 81
+width = 105
+height = 105
 format = 'png'
 
 result = imaging_controller.image_resize(image_url, width, height, format)
@@ -167,8 +159,8 @@ watermark_url = 'watermark-url'
 opacity = 50
 format = 'png'
 position = 'center'
-width = 81
-height = 81
+width = 105
+height = 105
 
 result = imaging_controller.image_watermark(image_url, watermark_url, opacity, format, position, width, height)
 
@@ -279,7 +271,7 @@ media_queries = false
 forms = false
 css = 'css'
 image_width = 1024
-image_height = 172
+image_height = 105
 render_delay = 0
 header_text_left = 'header-text-left'
 header_text_center = 'header-text-center'
@@ -295,8 +287,8 @@ footer_size = 9
 footer_font = 'Courier'
 footer_font_size = 11
 footer_line = false
-page_width = 172
-page_height = 172
+page_width = 105
+page_height = 105
 
 result = imaging_controller.html5_render(content, format, page_size, title, margin, margin_left, margin_right, margin_top, margin_bottom, landscape, zoom, grayscale, media_print, media_queries, forms, css, image_width, image_height, render_delay, header_text_left, header_text_center, header_text_right, header_size, header_font, header_font_size, header_line, footer_text_left, footer_text_center, footer_text_right, footer_size, footer_font, footer_font_size, footer_line, page_width, page_height)
 
@@ -428,7 +420,7 @@ def sms_verify(number,
 ```ruby
 number = 'number'
 code_length = 5
-security_code = 172
+security_code = 105
 country_code = 'country-code'
 language_code = 'en'
 
@@ -500,7 +492,7 @@ def phone_verify(number,
 ```ruby
 number = 'number'
 code_length = 6
-security_code = 172
+security_code = 105
 playback_delay = 800
 country_code = 'country-code'
 language_code = 'en'

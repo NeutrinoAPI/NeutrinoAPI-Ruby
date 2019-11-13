@@ -36,7 +36,7 @@ module NeutrinoApi
                         zoom = 'address')
       # Prepare query url.
       _path_url = '/geocode-reverse'
-      _query_builder = Configuration.base_uri.dup
+      _query_builder = Configuration.get_base_uri
       _query_builder << _path_url
       _query_url = APIHelper.clean_url _query_builder
       # Prepare headers.
@@ -78,7 +78,7 @@ module NeutrinoApi
                 reverse_lookup = false)
       # Prepare query url.
       _path_url = '/ip-info'
-      _query_builder = Configuration.base_uri.dup
+      _query_builder = Configuration.get_base_uri
       _query_builder << _path_url
       _query_url = APIHelper.clean_url _query_builder
       # Prepare headers.
@@ -128,7 +128,7 @@ module NeutrinoApi
                         fuzzy_search = false)
       # Prepare query url.
       _path_url = '/geocode-address'
-      _query_builder = Configuration.base_uri.dup
+      _query_builder = Configuration.get_base_uri
       _query_builder << _path_url
       _query_url = APIHelper.clean_url _query_builder
       # Prepare headers.

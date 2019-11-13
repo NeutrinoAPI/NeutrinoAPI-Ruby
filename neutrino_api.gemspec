@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'neutrino_api'
-  s.version = '3.4.3'
+  s.version = '3.4.5'
   s.summary = 'neutrino_api'
   s.description = 'The general-purpose API'
   s.authors = ['Neutrino API']

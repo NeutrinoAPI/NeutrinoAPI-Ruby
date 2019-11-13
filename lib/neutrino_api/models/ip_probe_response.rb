@@ -126,6 +126,11 @@ module NeutrinoApi
     # @return [String]
     attr_accessor :host_domain
 
+    # The domain of the VPN provider (may be empty if the VPN domain is not
+    # detectable)
+    # @return [String]
+    attr_accessor :vpn_domain
+
     # A mapping from model property names to API property names.
     def self.names
       @_hash = {} if @_hash.nil?
@@ -155,6 +160,7 @@ module NeutrinoApi
       @_hash['as_description'] = 'asDescription'
       @_hash['as_age'] = 'asAge'
       @_hash['host_domain'] = 'hostDomain'
+      @_hash['vpn_domain'] = 'vpnDomain'
       @_hash
     end
 
@@ -183,7 +189,8 @@ module NeutrinoApi
                    as_domains = nil,
                    as_description = nil,
                    as_age = nil,
-                   host_domain = nil)
+                   host_domain = nil,
+                   vpn_domain = nil)
       @valid = valid
       @country = country
       @provider_type = provider_type
@@ -210,6 +217,7 @@ module NeutrinoApi
       @as_description = as_description
       @as_age = as_age
       @host_domain = host_domain
+      @vpn_domain = vpn_domain
     end
 
     # Creates an instance of the object from a hash.
@@ -243,6 +251,7 @@ module NeutrinoApi
       as_description = hash['asDescription']
       as_age = hash['asAge']
       host_domain = hash['hostDomain']
+      vpn_domain = hash['vpnDomain']
 
       # Create object from extracted values.
       IPProbeResponse.new(valid,
@@ -270,7 +279,8 @@ module NeutrinoApi
                           as_domains,
                           as_description,
                           as_age,
-                          host_domain)
+                          host_domain,
+                          vpn_domain)
     end
   end
 end

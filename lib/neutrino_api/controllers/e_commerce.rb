@@ -27,7 +27,7 @@ module NeutrinoApi
                    customer_ip = nil)
       # Prepare query url.
       _path_url = '/bin-lookup'
-      _query_builder = Configuration.base_uri.dup
+      _query_builder = Configuration.get_base_uri
       _query_builder << _path_url
       _query_url = APIHelper.clean_url _query_builder
       # Prepare headers.

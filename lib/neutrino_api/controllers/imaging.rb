@@ -33,7 +33,7 @@ module NeutrinoApi
                      format = 'png')
       # Prepare query url.
       _path_url = '/image-resize'
-      _query_builder = Configuration.base_uri.dup
+      _query_builder = Configuration.get_base_uri
       _query_builder << _path_url
       _query_url = APIHelper.clean_url _query_builder
 
@@ -77,7 +77,7 @@ module NeutrinoApi
                 bg_color = '#ffffff')
       # Prepare query url.
       _path_url = '/qr-code'
-      _query_builder = Configuration.base_uri.dup
+      _query_builder = Configuration.get_base_uri
       _query_builder << _path_url
       _query_url = APIHelper.clean_url _query_builder
 
@@ -129,7 +129,7 @@ module NeutrinoApi
                         height = nil)
       # Prepare query url.
       _path_url = '/image-watermark'
-      _query_builder = Configuration.base_uri.dup
+      _query_builder = Configuration.get_base_uri
       _query_builder << _path_url
       _query_url = APIHelper.clean_url _query_builder
 
@@ -269,7 +269,7 @@ module NeutrinoApi
                      page_height = nil)
       # Prepare query url.
       _path_url = '/html5-render'
-      _query_builder = Configuration.base_uri.dup
+      _query_builder = Configuration.get_base_uri
       _query_builder << _path_url
       _query_url = APIHelper.clean_url _query_builder
 

@@ -23,7 +23,7 @@ module NeutrinoApi
     def ip_probe(ip)
       # Prepare query url.
       _path_url = '/ip-probe'
-      _query_builder = Configuration.base_uri.dup
+      _query_builder = Configuration.get_base_uri
       _query_builder << _path_url
       _query_url = APIHelper.clean_url _query_builder
       # Prepare headers.
@@ -61,7 +61,7 @@ module NeutrinoApi
                      fix_typos = false)
       # Prepare query url.
       _path_url = '/email-verify'
-      _query_builder = Configuration.base_uri.dup
+      _query_builder = Configuration.get_base_uri
       _query_builder << _path_url
       _query_url = APIHelper.clean_url _query_builder
       # Prepare headers.
@@ -97,7 +97,7 @@ module NeutrinoApi
     def ip_blocklist(ip)
       # Prepare query url.
       _path_url = '/ip-blocklist'
-      _query_builder = Configuration.base_uri.dup
+      _query_builder = Configuration.get_base_uri
       _query_builder << _path_url
       _query_url = APIHelper.clean_url _query_builder
       # Prepare headers.
@@ -138,7 +138,7 @@ module NeutrinoApi
                         list_rating = 3)
       # Prepare query url.
       _path_url = '/host-reputation'
-      _query_builder = Configuration.base_uri.dup
+      _query_builder = Configuration.get_base_uri
       _query_builder << _path_url
       _query_url = APIHelper.clean_url _query_builder
       # Prepare headers.

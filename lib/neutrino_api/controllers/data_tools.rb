@@ -26,7 +26,7 @@ module NeutrinoApi
                        fix_typos = false)
       # Prepare query url.
       _path_url = '/email-validate'
-      _query_builder = Configuration.base_uri.dup
+      _query_builder = Configuration.get_base_uri
       _query_builder << _path_url
       _query_url = APIHelper.clean_url _query_builder
       # Prepare headers.
@@ -62,7 +62,7 @@ module NeutrinoApi
     def user_agent_info(user_agent)
       # Prepare query url.
       _path_url = '/user-agent-info'
-      _query_builder = Configuration.base_uri.dup
+      _query_builder = Configuration.get_base_uri
       _query_builder << _path_url
       _query_url = APIHelper.clean_url _query_builder
       # Prepare headers.
@@ -101,7 +101,7 @@ module NeutrinoApi
                         censor_character = nil)
       # Prepare query url.
       _path_url = '/bad-word-filter'
-      _query_builder = Configuration.base_uri.dup
+      _query_builder = Configuration.get_base_uri
       _query_builder << _path_url
       _query_url = APIHelper.clean_url _query_builder
       # Prepare headers.
@@ -144,7 +144,7 @@ module NeutrinoApi
                 to_type)
       # Prepare query url.
       _path_url = '/convert'
-      _query_builder = Configuration.base_uri.dup
+      _query_builder = Configuration.get_base_uri
       _query_builder << _path_url
       _query_url = APIHelper.clean_url _query_builder
       # Prepare headers.
@@ -191,7 +191,7 @@ module NeutrinoApi
                        ip = nil)
       # Prepare query url.
       _path_url = '/phone-validate'
-      _query_builder = Configuration.base_uri.dup
+      _query_builder = Configuration.get_base_uri
       _query_builder << _path_url
       _query_url = APIHelper.clean_url _query_builder
       # Prepare headers.

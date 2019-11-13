@@ -34,7 +34,7 @@ module NeutrinoApi
                  timeout = 20)
       # Prepare query url.
       _path_url = '/url-info'
-      _query_builder = Configuration.base_uri.dup
+      _query_builder = Configuration.get_base_uri
       _query_builder << _path_url
       _query_url = APIHelper.clean_url _query_builder
       # Prepare headers.
@@ -82,7 +82,7 @@ module NeutrinoApi
                    output_type)
       # Prepare query url.
       _path_url = '/html-clean'
-      _query_builder = Configuration.base_uri.dup
+      _query_builder = Configuration.get_base_uri
       _query_builder << _path_url
       _query_url = APIHelper.clean_url _query_builder
 
@@ -142,7 +142,7 @@ module NeutrinoApi
                     ignore_certificate_errors = false)
       # Prepare query url.
       _path_url = '/browser-bot'
-      _query_builder = Configuration.base_uri.dup
+      _query_builder = Configuration.get_base_uri
       _query_builder << _path_url
       _query_url = APIHelper.clean_url _query_builder
       # Prepare headers.

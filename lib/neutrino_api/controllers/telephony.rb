@@ -24,7 +24,7 @@ module NeutrinoApi
     def verify_security_code(security_code)
       # Prepare query url.
       _path_url = '/verify-security-code'
-      _query_builder = Configuration.base_uri.dup
+      _query_builder = Configuration.get_base_uri
       _query_builder << _path_url
       _query_url = APIHelper.clean_url _query_builder
       # Prepare headers.
@@ -64,7 +64,7 @@ module NeutrinoApi
                    country_code = nil)
       # Prepare query url.
       _path_url = '/hlr-lookup'
-      _query_builder = Configuration.base_uri.dup
+      _query_builder = Configuration.get_base_uri
       _query_builder << _path_url
       _query_url = APIHelper.clean_url _query_builder
       # Prepare headers.
@@ -106,7 +106,7 @@ module NeutrinoApi
                        audio_url)
       # Prepare query url.
       _path_url = '/phone-playback'
-      _query_builder = Configuration.base_uri.dup
+      _query_builder = Configuration.get_base_uri
       _query_builder << _path_url
       _query_url = APIHelper.clean_url _query_builder
       # Prepare headers.
@@ -160,7 +160,7 @@ module NeutrinoApi
                    language_code = 'en')
       # Prepare query url.
       _path_url = '/sms-verify'
-      _query_builder = Configuration.base_uri.dup
+      _query_builder = Configuration.get_base_uri
       _query_builder << _path_url
       _query_url = APIHelper.clean_url _query_builder
       # Prepare headers.
@@ -209,7 +209,7 @@ module NeutrinoApi
                     country_code = nil)
       # Prepare query url.
       _path_url = '/sms-message'
-      _query_builder = Configuration.base_uri.dup
+      _query_builder = Configuration.get_base_uri
       _query_builder << _path_url
       _query_url = APIHelper.clean_url _query_builder
       # Prepare headers.
@@ -268,7 +268,7 @@ module NeutrinoApi
                      language_code = 'en')
       # Prepare query url.
       _path_url = '/phone-verify'
-      _query_builder = Configuration.base_uri.dup
+      _query_builder = Configuration.get_base_uri
       _query_builder << _path_url
       _query_url = APIHelper.clean_url _query_builder
       # Prepare headers.
